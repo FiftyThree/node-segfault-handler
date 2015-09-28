@@ -1,3 +1,9 @@
+### 0.2.6 (2015-09-28)
+
+* Don't write to file.
+* Handle SIGABRT and SIGILL.
+* Change error message
+
 ### 0.2.4 (2014-11-06)
 
 * [PR#16](https://github.com/ddopson/node-segfault-handler/pull/16) - Fix compile-breaking NAN bug by removing unnecessary '#define DEBUG'; restore latest NAN version.  This supersedes [PR#15](https://github.com/ddopson/node-segfault-handler/pull/15).
