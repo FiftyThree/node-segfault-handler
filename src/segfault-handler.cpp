@@ -24,16 +24,15 @@ static void segfault_handler(int sig, siginfo_t *si, void *unused) {
   const char * signame;
 
   if (sig == SIGSEGV) {
-    signame = "SIGSEGV\0";
+    signame = "SIGSEGV";
   } else if (sig == SIGABRT) {
-    signame = "SIGABRT\0";
+    signame = "SIGABRT";
   } else if (sig == SIGILL) {
-    signame = "SIGILL\0";
+    signame = "SIGILL";
   } else {
-    signame = "UNKNOWN\0";
+    signame = "UNKNOWN";
   }
 
-  // Construct a filename
   time(&now);
   pid = getpid();
 
@@ -43,6 +42,8 @@ static void segfault_handler(int sig, siginfo_t *si, void *unused) {
   // Write the Backtrace
   size = backtrace(array, 32);
   backtrace_symbols_fd(array, size, STDERR_FD);
+
+  fflush(stderr);
 
   // Exit violently
   exit(-1);
